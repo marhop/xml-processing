@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gtr:tree xmlns:gtr="http://martin.hoppenheit.info/code/generic-tree-xml" xmlns:dc="http://purl.org/dc/elements/1.1/" name="Books">
+  <gtr:node name="Programming Books">
+    <gtr:node>
+      <gtr:content type="Dublin Core">
+        <dc:title>Learn You a Haskell for Great Good!</dc:title>
+        <dc:creator>Miran Lipovača</dc:creator>
+        <dc:date>2011</dc:date>
+      </gtr:content>
+    </gtr:node>
+    <gtr:node>
+      <gtr:content type="Dublin Core">
+        <dc:title>Effective Java</dc:title>
+        <dc:creator>Joshua Bloch</dc:creator>
+        <dc:date>2008</dc:date>
+      </gtr:content>
+    </gtr:node>
+  </gtr:node>
+  <gtr:node name="Fantasy Books">
+    <gtr:node>
+      <gtr:content type="Dublin Core">
+        <dc:title>The Lord of the Rings</dc:title>
+        <dc:creator>J. R. R. Tolkien</dc:creator>
+      </gtr:content>
+    </gtr:node>
+    <gtr:node>
+      <gtr:content type="Dublin Core">
+        <dc:title>A Song of Ice and Fire</dc:title>
+        <dc:creator>George R. R. Martin</dc:creator>
+      </gtr:content>
+      <gtr:node>
+        <gtr:content type="Dublin Core">
+          <dc:title>A Game of Thrones</dc:title>
+          <dc:date>1996</dc:date>
+        </gtr:content>
+      </gtr:node>
+      <gtr:node>
+        <gtr:content type="Dublin Core">
+          <dc:title>A Clash of Kings</dc:title>
+          <dc:date>1999</dc:date>
+        </gtr:content>
+      </gtr:node>
+      <gtr:node>
+        <gtr:content type="Dublin Core">
+          <dc:title>A Storm of Swords</dc:title>
+          <dc:date>2000</dc:date>
+        </gtr:content>
+      </gtr:node>
+      <!-- ... -->
+    </gtr:node>
+  </gtr:node>
+</gtr:tree>

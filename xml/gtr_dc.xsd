@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:gtr="http://martin.hoppenheit.info/code/generic-tree-xml"
+           xmlns="http://martin.hoppenheit.info/code/generic-tree-xml"
+           targetNamespace="http://martin.hoppenheit.info/code/generic-tree-xml"
+           version="1.0"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+    <xs:import namespace="http://purl.org/dc/elements/1.1/"
+               schemaLocation="http://dublincore.org/schemas/xmls/simpledc20021212.xsd" />
+
+    <xs:redefine schemaLocation="http://martin.hoppenheit.info/code/generic-tree-xml/gtr.xsd">
+        <xs:complexType name="content">
+            <xs:complexContent>
+                <xs:restriction base="gtr:content">
+                    <xs:sequence>
+                        <xs:any processContents="strict"
+                                namespace="http://purl.org/dc/elements/1.1/"
+                                minOccurs="0"
+                                maxOccurs="unbounded" />
+                    </xs:sequence>
+                    <xs:attribute name="type"
+                                  type="xs:string"
+                                  fixed="Dublin Core" />
+                </xs:restriction>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:redefine>
+</xs:schema>
