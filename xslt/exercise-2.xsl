@@ -4,6 +4,15 @@
     xmlns:t="http://martin.hoppenheit.info/code/generic-tree-xml"
     xmlns:e="http://purl.org/dc/elements/1.1/">
 
+    <!-- Use output method "text" (default is usually "xml"). Provide two
+    different templates for `node` elements: one for inner nodes, and one for
+    leaf nodes. Starting with the top-level `node` elements, both templates
+    call each other recursively, thus iterating through the XML tree. Use a
+    parameter to pass the content of the `creator` element on when applying
+    the templates recursively to child nodes (starting with default empty
+    string). Whenever a node has a `creator` element of its own the content of
+    that element will override the supplied parameter value. -->
+
     <xsl:output method="text"/>
 
     <xsl:template match="/">
