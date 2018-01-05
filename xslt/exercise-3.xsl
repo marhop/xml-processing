@@ -4,6 +4,11 @@
     xmlns:t="http://martin.hoppenheit.info/code/generic-tree-xml"
     xmlns:e="http://purl.org/dc/elements/1.1/">
 
+    <!-- In the template for `title` elements, create a copy of the element
+    (including possible attributes). Make its content uppercase with the
+    `translate` XPath function. Apply the identity transform (a verbatim copy)
+    to all other elements and attributes. -->
+
     <!-- Make title elements uppercase. -->
     <xsl:template match="e:title">
         <xsl:copy>
