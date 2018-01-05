@@ -4,6 +4,10 @@
     xmlns:t="http://martin.hoppenheit.info/code/generic-tree-xml"
     xmlns:e="http://purl.org/dc/elements/1.1/">
 
+    <!-- Use output method "text" (default is usually "xml"). Provide a
+    template for `node` elements that produces the desired output. Apply it
+    only to those elements that have no further `node` child elements. -->
+
     <xsl:output method="text"/>
 
     <xsl:template match="/">
