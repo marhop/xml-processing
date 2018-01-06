@@ -9,3 +9,7 @@ can be run like this:
 
 [XMLStarlet]: http://xmlstar.sourceforge.net/
 [xsltproc]: http://xmlsoft.org/XSLT/xsltproc2.html
+
+In case you have problems understanding the identity transform used in the
+solutions of exercises 3-5, [Wikipedia has an article about
+it](https://en.wikipedia.org/wiki/Identity_transform).
