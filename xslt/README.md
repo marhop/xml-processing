@@ -10,8 +10,8 @@ can be run like this:
 [XMLStarlet]: http://xmlstar.sourceforge.net/
 [xsltproc]: http://xmlsoft.org/XSLT/xsltproc2.html
 
-In case you have problems understanding the identity transform used in the
-solutions of exercises 3-5, [Wikipedia has an article about
+In case you have problems understanding the identity transform used in various
+solutions, [Wikipedia has an article about
 it](https://en.wikipedia.org/wiki/Identity_transform).
 
 There is obviously no XSLT solution of exercise 6 -- XSLT is not intended for
