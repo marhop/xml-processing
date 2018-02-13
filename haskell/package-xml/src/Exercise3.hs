@@ -1,12 +1,9 @@
-module Main where
+module Exercise3
+    ( exercise
+    ) where
 
 import Data.Char
 import Text.XML.Light
-
-main :: IO ()
-main = do
-    xml <- readFile "../../xml/example.xml"
-    putStrLn $ exercise xml
 
 exercise :: String -> String
 exercise = unlines . map (showContent . transform) . parseXML

@@ -1,11 +1,8 @@
-module Main where
+module Exercise2
+    ( exercise
+    ) where
 
 import Text.XML.Light
-
-main :: IO ()
-main = do
-    xml <- readFile "../../xml/example.xml"
-    putStrLn $ exercise xml
 
 exercise :: String -> String
 exercise xml =

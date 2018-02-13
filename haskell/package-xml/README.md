@@ -9,8 +9,8 @@ Build and run with [stack]:
 
     $ stack setup
     $ stack build
-    $ stack exec exercise-1
-    $ stack exec exercise-2
+    $ stack exec exercise 1
+    $ stack exec exercise 2
     ...
 
 [stack]: https://haskellstack.org
