@@ -5,6 +5,8 @@ module Exercise3
 import Data.Char
 import Text.XML.Light
 
+import Common
+
 exercise :: String -> String
 exercise = unlines . map (showContent . transform) . parseXML
 
@@ -17,10 +19,3 @@ transform (Elem e)
     uc (Text t) = Text t {cdData = map toUpper $ cdData t}
     uc x = x
 transform x = x
-
--- | Create a QName in the Dublin Core namespace.
-dc :: String -> QName
-dc n = QName n ns prefix
-  where
-    ns = Just "http://purl.org/dc/elements/1.1/"
-    prefix = Just "e"
