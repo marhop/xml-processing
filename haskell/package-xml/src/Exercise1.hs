@@ -7,10 +7,7 @@ import Text.XML.Light
 import Common
 
 exercise :: String -> String
-exercise xml =
-    case parseXMLDoc xml of
-        Nothing -> ""
-        Just root -> unlines $ map content $ leafNodes root
+exercise = maybe "" (unlines . map content . leafNodes) . parseXMLDoc
 
 -- | Find the leaf nodes of an element.
 leafNodes :: Element -> [Element]
