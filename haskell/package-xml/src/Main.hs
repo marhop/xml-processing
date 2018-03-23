@@ -7,6 +7,7 @@ import Exercise1 as E1
 import Exercise2 as E2
 import Exercise3 as E3
 import Exercise4 as E4
+import Exercise5 as E5
 
 main :: IO ()
 main = do
@@ -18,4 +19,5 @@ main = do
             2 -> E2.exercise xml
             3 -> E3.exercise xml
             4 -> E4.exercise xml
+            5 -> E5.exercise xml
             _ -> ""
