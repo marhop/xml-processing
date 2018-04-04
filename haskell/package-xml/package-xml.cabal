@@ -24,3 +24,4 @@ executable exercise
                      , Exercise4
                      , Exercise5
                      , Exercise7
+                     , Exercise8
