@@ -16,6 +16,17 @@ Many methods accept an optional namespaces mapping:
           "e": "http://purl.org/dc/elements/1.1/"}
     element.find("t:node", ns)
 
+For those that don't this workaround may be eligible:
+
+    element.iter("{%s}foo" % ns["n"])
+
+The `tostring()` method prints ugly prefixes like `ns0:` unless namespaces are
+registered globally:
+
+    for prefix, uri in ns.items():
+        ET.register_namespace(prefix, uri)
+    print(ET.tostring(element, encoding="unicode"))
+
 ## Iterating over child elements
 
   * All direct child elements:
