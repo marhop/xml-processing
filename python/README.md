@@ -18,7 +18,7 @@ Many methods accept an optional namespaces mapping:
 
 For those that don't this workaround may be eligible:
 
-    element.iter("{%s}foo" % ns["n"])
+    element.iter("{%s}node" % ns["t"])
 
 The `tostring()` method prints ugly prefixes like `ns0:` unless namespaces are
 registered globally:
