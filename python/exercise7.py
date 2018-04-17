@@ -20,6 +20,7 @@ def exercise(xml):
     return ET.tostring(root, encoding="unicode")
 
 
-with open("../xml/example.xml") as f:
-    xml = f.read()
-    print(exercise(xml))
+if __name__ == "__main__":
+    with open("../xml/example.xml") as f:
+        xml = f.read()
+        print(exercise(xml))

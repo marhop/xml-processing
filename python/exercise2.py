@@ -22,6 +22,7 @@ def leafnodes(elem, creator):
         return "\n".join([leafnodes(n, c) for n in elem.findall("t:node", ns)])
 
 
-with open("../xml/example.xml") as f:
-    xml = f.read()
-    print(exercise(xml))
+if __name__ == "__main__":
+    with open("../xml/example.xml") as f:
+        xml = f.read()
+        print(exercise(xml))

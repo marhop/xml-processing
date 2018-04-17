@@ -19,6 +19,7 @@ def exercise(xml):
     return "\n".join(results)
 
 
-with open("../xml/example.xml") as f:
-    xml = f.read()
-    print(exercise(xml))
+if __name__ == "__main__":
+    with open("../xml/example.xml") as f:
+        xml = f.read()
+        print(exercise(xml))
