@@ -3,10 +3,14 @@
 XML processing with Python. This refers to the exercises described
 [here](../README.md).
 
-# Notes
+All code except Exercise 6 (validation) uses Python's built-in [ElementTree
+module](https://docs.python.org/3.5/library/xml.etree.elementtree.html), so
+there are no extra dependencies. Exercise 6 requires the
+[lxml](http://lxml.de/validation.html) library.
 
-The complete documentation for the ElementTree module is
-[here](https://docs.python.org/3.5/library/xml.etree.elementtree.html).
+# Notes on ElementTree
+
+[Documentation](https://docs.python.org/3.5/library/xml.etree.elementtree.html)
 
 ## Namespaces
 
