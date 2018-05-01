@@ -14,7 +14,7 @@ import Util
 exercise :: ArrowXml a => a XmlTree String
 exercise =
     propagateNamespaces >>>
-    deepest (el (gtr "node")) >>>
+    deepest (hasQName (gtr "node")) >>>
     content "creator" &&& content "title" >>> arr (\(c, t) -> c ++ ", " ++ t)
 
 -- | Get the value of a node's content child element (default empty string).
@@ -32,4 +32,5 @@ exercise =
 -- and @content "date"@ yields "".
 content :: ArrowXml a => String -> a XmlTree String
 content n =
-    (this /> el (gtr "content") /> el (dc n) /> getText) `orElse` arr (const "")
+    (this /> hasQName (gtr "content") /> hasQName (dc n) /> getText) `orElse`
+    arr (const "")

@@ -1,14 +1,9 @@
 module Util
-    ( el
-    , gtr
+    ( gtr
     , dc
     ) where
 
 import Text.XML.HXT.Core
-
--- | Test for elements with the given QName.
-el :: ArrowXml a => QName -> a XmlTree XmlTree
-el n = isElem >>> hasQName n
 
 -- | Create a QName in the Generic Tree namespace.
 gtr :: String -> QName
