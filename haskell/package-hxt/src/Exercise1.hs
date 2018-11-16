@@ -6,16 +6,16 @@ import Text.XML.HXT.Core
 
 import Util
 
--- | Extract creator and title from all leaf nodes.
---
--- Make all elements in the tree namespace aware so they know their qualified
--- names, find the leaf nodes (very conveniently with @deepest@), get creator
--- and title values and combine them into a comma separated string.
 exercise :: ArrowXml a => a XmlTree String
-exercise =
-    propagateNamespaces >>>
-    deepest (hasQName (gtr "node")) >>>
-    content "creator" &&& content "title" >>> arr (\(c, t) -> c ++ ", " ++ t)
+exercise = propagateNamespaces >>> leafNodes >>> content
+
+-- Find leaf nodes.
+leafNodes :: ArrowXml a => a XmlTree XmlTree
+leafNodes = deepest $ hasQName (gtr "node")
+
+-- Extract and format the desired element content.
+content :: ArrowXml a => a XmlTree String
+content = value "creator" &&& value "title" >>> arr (\(c, t) -> c ++ ", " ++ t)
 
 -- | Get the value of a node's content child element (default empty string).
 --
@@ -28,9 +28,9 @@ exercise =
 -- >   </gtr:content>
 -- > </gtr:node>
 --
--- Then applying the filter @content "title"@ yields "The Lord of the Rings",
--- and @content "date"@ yields "".
-content :: ArrowXml a => String -> a XmlTree String
-content n =
+-- Then applying the filter @value "title"@ yields "The Lord of the Rings", and
+-- @value "date"@ yields "".
+value :: ArrowXml a => String -> a XmlTree String
+value n =
     (this /> hasQName (gtr "content") /> hasQName (dc n) /> getText) `orElse`
     arr (const "")
