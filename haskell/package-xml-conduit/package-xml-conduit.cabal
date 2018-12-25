@@ -1,0 +1,24 @@
+name:                package-xml-conduit
+version:             0.0.1
+-- synopsis:
+-- description:
+license:             BSD3
+author:              Martin Hoppenheit
+maintainer:          martin@hoppenheit.info
+copyright:           2018 Martin Hoppenheit
+category:
+build-type:          Simple
+cabal-version:       >=1.10
+extra-source-files:  README.md
+
+executable exercise
+  hs-source-dirs:      src
+  main-is:             Main.hs
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5
+                     , text >= 1.2 && < 2
+                     , string-conversions >= 0.4 && < 1
+                     , xml-conduit >= 1.5 && < 2
+                     , containers >= 0.5 && < 1
+  other-modules:       GtrDc
+                     , Exercise1
