@@ -22,4 +22,5 @@ executable exercise
                      , containers >= 0.5 && < 1
   other-modules:       GtrDc
                      , Exercise1
+                     , Exercise2
                      , Exercise3
