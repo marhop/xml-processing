@@ -20,7 +20,7 @@ data GtrNode = GtrNode
     { nName :: Maybe T.Text
     , nContent :: [DcElement]
     , nChildren :: [GtrNode]
-    } deriving (Show)
+    } deriving (Eq, Show)
 
 data DcElement
     = Title T.Text
@@ -38,7 +38,7 @@ data DcElement
     | Relation T.Text
     | Coverage T.Text
     | Rights T.Text
-    deriving (Show)
+    deriving (Eq, Show)
 
 -- Read
 
