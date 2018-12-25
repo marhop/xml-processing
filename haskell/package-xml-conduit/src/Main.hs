@@ -5,6 +5,7 @@ import qualified Data.Text.IO as TIO
 import System.Environment (getArgs)
 
 import Exercise1 as E1
+import Exercise3 as E3
 
 main :: IO ()
 main = do
@@ -13,4 +14,5 @@ main = do
     TIO.putStr $
         case num of
             1 -> E1.exercise xml
+            3 -> E3.exercise xml
             _ -> T.empty
