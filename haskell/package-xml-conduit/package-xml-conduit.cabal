@@ -20,6 +20,7 @@ executable exercise
                      , string-conversions >= 0.4 && < 1
                      , xml-conduit >= 1.5 && < 2
                      , containers >= 0.5 && < 1
+                     , safe >= 0.3 && < 1
   other-modules:       GtrDc
                      , Exercise1
                      , Exercise2
@@ -27,3 +28,4 @@ executable exercise
                      , Exercise4
                      , Exercise5
                      , Exercise7
+                     , Exercise8
