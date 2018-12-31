@@ -23,6 +23,7 @@ executable exercise
                      , safe >= 0.3 && < 1
   other-modules:       GtrDc
                      , Exercise1
+                     , Exercise1Simple
                      , Exercise2
                      , Exercise3
                      , Exercise4
