@@ -15,8 +15,11 @@ Build and run:
 
 # Notes on xml-conduit
 
-* The [tutorial](https://www.yesodweb.com/book/xml) unfortunately does not cover
-  the streaming API.
+* The [xml-conduit tutorial](https://www.yesodweb.com/book/xml) unfortunately
+  does not cover the streaming API.
 * The [API documentation](https://hackage.haskell.org/package/xml-conduit)
   includes a short usage example in the docs of the `Text.XML.Stream.Parse`
   module.
+* Since the streaming API is based on the conduit framework, the general
+  [conduit tutorial](https://github.com/snoyberg/conduit#readme) is useful to
+  get comfortable with the basics.
