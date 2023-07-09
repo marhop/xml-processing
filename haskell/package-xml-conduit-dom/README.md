@@ -1,7 +1,8 @@
 # Haskell (xml-conduit)
 
-XML processing with the Haskell [xml-conduit package]. This refers to the
-exercises described [here](../../README.md).
+XML processing with the DOM API of the Haskell [xml-conduit package] (module
+`Text.XML.Cursor` in particular). This refers to the exercises described
+[here](../../README.md).
 
 [xml-conduit package]: https://hackage.haskell.org/package/xml-conduit
 
