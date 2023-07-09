@@ -21,4 +21,5 @@ executable exercise
                       xml-types ^>= 0.3
     hs-source-dirs:   app
     default-language: GHC2021
-    other-modules:    Exercise1
+    other-modules:    Exercise1,
+                      Exercise2

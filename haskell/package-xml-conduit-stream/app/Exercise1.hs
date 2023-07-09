@@ -59,7 +59,7 @@ nodeP = tagIgnoreAttrs (gtr "node") $ do
     Just () -> void $ many nodeP
     -- Otherwise (mbNode == Nothing) the current node is a leaf node, so we
     -- yield (i.e., send downstream) its content (if there is any).
-    Nothing -> maybe (pure ()) yield mbContent
+    Nothing -> mapM_ yield mbContent
 
 -- | Parse a @gtr:content@ element, possibly containing Dublin Core elements.
 -- The content of @dc:creator@ and @dc:title@ elements (default empty string) is
