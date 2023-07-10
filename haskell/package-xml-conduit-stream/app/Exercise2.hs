@@ -44,20 +44,14 @@ treeP = tagIgnoreAttrs (gtr "tree") (void . many $ nodeP "")
 nodeP :: (MonadThrow m) => Text -> ConduitT Event Content m (Maybe ())
 nodeP parentCreator = tagIgnoreAttrs (gtr "node") $ do
   mbContent <- contentP
-  let cr =
-        maybe
-          parentCreator
-          (\c -> if c.creator /= "" then c.creator else parentCreator)
-          mbContent
-  mbNode <- nodeP cr
+  let creator' = case mbContent of
+        Nothing -> parentCreator
+        Just (Content "" _) -> parentCreator
+        Just (Content c _) -> c
+  mbNode <- nodeP creator'
   case mbNode of
-    Just () -> void . many $ nodeP cr
-    Nothing ->
-      mapM_
-        ( \c ->
-            yield $ if c.creator /= "" then c else c {creator = parentCreator}
-        )
-        mbContent
+    Just () -> void . many $ nodeP creator'
+    Nothing -> mapM_ (\(Content _ t) -> yield $ Content creator' t) mbContent
 
 contentP :: (MonadThrow m) => ConduitT Event o m (Maybe Content)
 contentP = tagIgnoreAttrs (gtr "content") $ do
