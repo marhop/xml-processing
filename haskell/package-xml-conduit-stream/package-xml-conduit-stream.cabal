@@ -22,4 +22,5 @@ executable exercise
     hs-source-dirs:   app
     default-language: GHC2021
     other-modules:    Exercise1,
-                      Exercise2
+                      Exercise2,
+                      Exercise3
