@@ -23,4 +23,5 @@ executable exercise
     default-language: GHC2021
     other-modules:    Exercise1,
                       Exercise2,
-                      Exercise3
+                      Exercise3,
+                      Exercise4
