@@ -5,6 +5,7 @@ import Exercise1 qualified as E1
 import Exercise2 qualified as E2
 import Exercise3 qualified as E3
 import Exercise4 qualified as E4
+import Exercise5 qualified as E5
 import System.Environment (getArgs)
 import Text.XML.Stream.Parse (def, parseFile)
 
@@ -17,4 +18,5 @@ main = do
       2 -> E2.exercise
       3 -> E3.exercise
       4 -> E4.exercise
+      5 -> E5.exercise
       _ -> sinkNull
