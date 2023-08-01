@@ -8,6 +8,9 @@ the XML tree and validation against an XML schema. The [example XML
 file](xml/example.xml) and the [underlying schema](xml/gtr_dc.xsd) can be found
 in the xml directory.
 
+Feel free to send pull requests for solutions in additional languages or for
+improvements of the existing solutions!
+
 # Exercises
 
 ## Exercise 1
