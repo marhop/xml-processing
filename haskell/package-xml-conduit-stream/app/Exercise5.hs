@@ -22,6 +22,10 @@ import Text.XML.Stream.Render (def, renderBuilder)
 exercise :: (MonadThrow m, MonadIO m, PrimMonad m) => ConduitT Event Void m ()
 exercise = transform .| renderBuilder def .| builderToByteString .| stdoutC
 
+-- | Transform a stream of events: Consume events until the next one is the
+-- starting tag of the "Programming Books" node. Then, skip (do not send
+-- downstream) the next subtree, which is exactly the "Programming Books" node.
+-- Finally just consume the rest of the stream.
 transform :: (MonadThrow m) => ConduitT Event Event m ()
 transform = do
   takeWhileC

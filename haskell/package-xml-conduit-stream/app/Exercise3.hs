@@ -23,6 +23,9 @@ import Text.XML.Stream.Render (def, renderBuilder)
 exercise :: (MonadThrow m, MonadIO m, PrimMonad m) => ConduitT Event Void m ()
 exercise = transform .| renderBuilder def .| builderToByteString .| stdoutC
 
+-- | Transform a stream of events: If an event signals the opening tag of a
+-- title element, look for its content in the next event and make that
+-- uppercase. Send everything else downstream without changes.
 transform :: (Monad m) => ConduitT Event Event m ()
 transform = do
   mx <- await
