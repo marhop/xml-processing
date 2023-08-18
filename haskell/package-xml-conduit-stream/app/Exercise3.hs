@@ -9,7 +9,6 @@ import Conduit
     PrimMonad,
     Void,
     await,
-    builderToByteString,
     stdoutC,
     yield,
     (.|),
@@ -18,10 +17,10 @@ import Control.Monad (when)
 import Data.Text (toUpper)
 import Data.XML.Types (Content (..), Event (..))
 import Text.XML (Name (..))
-import Text.XML.Stream.Render (def, renderBuilder)
+import Text.XML.Stream.Render (def, renderBytes)
 
 exercise :: (MonadThrow m, MonadIO m, PrimMonad m) => ConduitT Event Void m ()
-exercise = transform .| renderBuilder def .| builderToByteString .| stdoutC
+exercise = transform .| renderBytes def .| stdoutC
 
 -- | Transform a stream of events: If an event signals the opening tag of a
 -- title element, look for its content in the next event and make that
