@@ -16,7 +16,10 @@ Build and run:
 # Notes on xml-conduit
 
 * The [xml-conduit tutorial](https://www.yesodweb.com/book/xml) unfortunately
-  does not cover the streaming API.
+  does not cover the streaming API ...
+* ... so I made a [blog
+  post](https://martin.hoppenheit.info/blog/2023/xml-stream-processing-with-haskell/)
+  to fill that gap.
 * The [API documentation](https://hackage.haskell.org/package/xml-conduit)
   includes a short usage example in the docs of the `Text.XML.Stream.Parse`
   module.
