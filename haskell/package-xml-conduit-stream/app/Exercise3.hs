@@ -8,38 +8,35 @@ import Conduit
     MonadThrow,
     PrimMonad,
     Void,
-    await,
+    nullC,
     stdoutC,
-    yield,
+    takeWhileC,
     (.|),
   )
-import Control.Monad (when)
+import Control.Monad (unless)
 import Data.Text (toUpper)
-import Data.XML.Types (Content (..), Event (..))
+import Data.XML.Types (Event (..))
 import Text.XML (Name (..))
-import Text.XML.Stream.Render (def, renderBytes)
+import Text.XML.Stream.Parse (matching, tagNoAttr)
+import Text.XML.Stream.Parse qualified as Parse
+import Text.XML.Stream.Render (content, def, renderBytes, tag)
 
 exercise :: (MonadThrow m, MonadIO m, PrimMonad m) => ConduitT Event Void m ()
 exercise = transform .| renderBytes def .| stdoutC
 
--- | Transform a stream of events: If an event signals the opening tag of a
--- title element, look for its content in the next event and make that
--- uppercase. Send everything else downstream without changes.
-transform :: (Monad m) => ConduitT Event Event m ()
+-- | Transform a stream of events: First, consume events (i.e., send them
+-- downstream) until the opening tag of a title element is encountered. In that
+-- case, parse the whole title element to obtain its text content and send a new
+-- title element with the same but uppercased text content downstream. Repeat
+-- until the end of input is reached.
+transform :: (MonadThrow m) => ConduitT Event Event m ()
 transform = do
-  mx <- await
-  case mx of
-    Nothing -> pure ()
-    Just x -> do
-      yield x
-      when (x == EventBeginElement titleName []) $ do
-        my <- await
-        case my of
-          Nothing -> pure ()
-          Just (EventContent (ContentText t)) ->
-            yield $ EventContent (ContentText $ toUpper t)
-          Just y -> yield y
-      transform
+  takeWhileC (/= EventBeginElement titleName [])
+  atEndOfStream <- nullC
+  unless atEndOfStream $ do
+    t <- tagNoAttr (matching (== titleName)) Parse.content
+    maybe (pure ()) (tag titleName mempty . content . toUpper) t
+    transform
 
 titleName :: Name
 titleName = Name "title" (Just "http://purl.org/dc/elements/1.1/") (Just "e")
